@@ -1,0 +1,32 @@
+<!--<p>-->
+  <!--artists works!-->
+<!--</p>-->
+<h2>My Artists</h2>
+<ul class="artists">
+  <li *ngFor="let artist of artists">
+    <a routerLink="/detail/{{artist.id}}">
+      <span class="badge">{{artist.id}}</span> <span>{{artist.name}} </span><span class="genrebadge"> {{artist.genre}}</span>
+    </a>
+    <button class="delete" title="delete artist" (click)="delete(artist)"> x </button>
+  </li>
+</ul>
+<div>
+  <h2> Add new Artist></h2>
+  <label>Artist name:
+    <input #artistName />
+  </label>
+  <label>Artist genre:
+    <input #artistGenre />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(artistName.value, artistGenre.value); artistName.value=''; artistGenre.value='';">
+    add
+  </button>
+</div>
+
+<!--<app-artist-detail [artist]="selectedArtist"></app-artist-detail>-->
+
+
+
+
+

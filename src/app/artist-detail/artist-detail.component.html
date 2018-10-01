@@ -1,0 +1,19 @@
+
+<div *ngIf="artist">
+  <h2>{{artist.name}} Details </h2>
+  <div><span class="detail-badge"> id: </span><span class="detail-badge" >{{artist.id}} </span></div>
+  <div><span class="detail-badge"> name: </span><span class="detail-badge">{{artist.name}}</span></div>
+  <div><span class="detail-badge"> genre: </span><span class="detail-badge">{{artist.genre}}</span></div>
+  <div>
+    <h2> Edit {{artist.name}} Details</h2>
+    <label>name:
+      <input [(ngModel)]="artist.name" placeholder="name">
+    </label>
+    <label>genre:
+      <input [(ngModel)]="artist.genre" placeholder="genre">
+    </label>
+  </div>
+
+</div>
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

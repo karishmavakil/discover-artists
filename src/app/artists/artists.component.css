@@ -1,0 +1,71 @@
+/* ArtistComponent's private CSS styles */
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.artists {
+  list-style-type: none;
+  padding: 3em;
+  width: 30em;
+}
+.artists li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: 1em;
+  padding: .3em 0 0.4em;
+  height: 3em;
+  border-radius: 3px;
+}
+.artists li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.artists li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.artists .text {
+  padding: 3em;
+  position: relative;
+  top: -10px;
+}
+.artists .badge {
+  display: inline-block;
+  color: white;
+  font: small;
+  padding: 0.6em 0.5em 0em 0.5em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  height: 3em;
+  top: -4px;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+.artists .genrebadge {
+  display: inline-block;
+  color: white;
+  font: small;
+  padding: 0.6em 0.5em 0em 0.5em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: absolute;
+  align: left;
+  right: 0px;
+  top: 7px;
+  height: 1.8em;
+  width: fit-content;
+  margin-right: .2em;
+  border-radius: 4px 4px 4px 4px;
+
+}
+button.delete {
+  position: absolute;
+  right: -100px;
+  background-color: gray !important;
+  color: white;
+}
