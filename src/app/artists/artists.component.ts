@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from '../artist';
+import { iTunesArtist } from '../itunesArtist';
+import { ArtistResponse } from '../artistResponse';
 import { ARTISTS }  from '../mock-artists';
 import { ArtistService }  from '../artist.service';
 
@@ -17,6 +19,8 @@ export class ArtistsComponent implements OnInit {
     genre: 'Rap'
 
   };
+
+  itunesartist: iTunesArtist;
 
   artists: Artist[];
 
@@ -40,13 +44,21 @@ export class ArtistsComponent implements OnInit {
     });
   }
 
+  getiTunesArtist(artistName: string): void {
+
+    this.artistService.getiTunesArtist(artistName.trim().split(' ').join('+'))
+    .subscribe(artistResponse => {
+      console.log(artistResponse.resultCount);
+      console.log(artistResponse.results[0].artistId);
+      this.itunesartist = {
+        name: artistName,
+        id: artistResponse.results[0].artistId
+      };
+    });
+  }
+
   delete(artist: Artist): void {
     this.artists = this.artists.filter(a => a !== artist);
     this.artistService.deleteArtist(artist).subscribe();
   }
-
-
-
-
-
 }

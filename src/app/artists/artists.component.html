@@ -23,6 +23,21 @@
     add
   </button>
 </div>
+<div>
+  <h2> Search iTunes: </h2>
+  <label> Artist name:
+    <input #itunesArtist />
+  </label>
+  <button (click)="getiTunesArtist(itunesArtist.value); itunesArtist.value='';">
+    search
+  </button>
+</div>
+<div *ngIf="itunesartist">
+  <h2>iTunes Artist Details</h2>
+  <span class="artist-detail">Name: {{itunesartist.name | titlecase}}</span>
+  <span class="artist-detail">Id: {{itunesartist.id}}</span>
+
+</div>
 
 <!--<app-artist-detail [artist]="selectedArtist"></app-artist-detail>-->
 

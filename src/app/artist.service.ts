@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Artist } from './artist';
+import { ArtistResponse } from './artistResponse';
 import { ARTISTS } from './mock-artists';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
@@ -7,9 +8,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-
+const itunesAPI = {
+  SEARCH: 'https://itunes.apple.com/search?',
+  LOOKUP: 'https://itunes.apple.com/lookup?'
+}
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  })
 };
 
 
@@ -66,6 +73,15 @@ export class ArtistService {
 
   }
 
+  getiTunesArtist(name: string) : Observable<ArtistResponse> {
+    console.log(`${itunesAPI.SEARCH}term=${name}`);
+    return this.http.get<ArtistResponse>(`${itunesAPI.SEARCH}term=${name}`, httpOptions)
+    .pipe(
+    tap(_ => this.log(`got artist reponse for artist name=${name}`)),
+    catchError(this.handleError<ArtistResponse>('getiTunesArtist'))
+    );
+  }
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
@@ -73,7 +89,6 @@ export class ArtistService {
   private log(message: string) {
     this.messageService.add(`ArtistService: ${message}`);
   }
-
 
   /**
    * Handle Http operation that failed.
