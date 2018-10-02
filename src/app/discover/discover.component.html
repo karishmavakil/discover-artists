@@ -1,0 +1,18 @@
+<h3>Discover iTunes Artists</h3>
+<div>
+  <h2> Search iTunes: </h2>
+  <label> Artist name:
+    <input #itunesArtist />
+  </label>
+  <button (click)="searchiTunesArtist(itunesArtist.value); itunesArtist.value='';">
+    search
+  </button>
+</div>
+<div *ngIf="itunesartist">
+  <h2>iTunes Artist Details</h2>
+  <span class="artist-detail">Name: {{itunesartist.artistName | titlecase}}</span>
+  <span class="artist-detail">Id: {{itunesartist.artistId}}</span>
+  <span class="artist-detail"><a href = {{itunesartist.artistLinkUrl}}> Link to Artist Page </a></span>
+  <span class="artist-detail">Genre: {{itunesartist.primaryGenreName}}</span>
+
+</div>

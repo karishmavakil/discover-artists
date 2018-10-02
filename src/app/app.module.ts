@@ -10,13 +10,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { DiscoverComponent } from './discover/discover.component';
 @NgModule({
   declarations: [
     AppComponent,
     ArtistsComponent,
     ArtistDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    DiscoverComponent
   ],
   imports: [
     BrowserModule,

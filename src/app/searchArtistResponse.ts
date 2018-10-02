@@ -1,6 +1,6 @@
 import { Track } from './track';
 
-export class ArtistResponse {
+export class SearchArtistResponse {
   resultCount : string;
   results : Track[];
 }

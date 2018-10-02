@@ -1,4 +1,6 @@
 export class iTunesArtist {
-  name: string;
-  id: number;
+   artistName: string;
+   artistLinkUrl: string;
+   artistId: number;
+   primaryGenreName: string;
 }
